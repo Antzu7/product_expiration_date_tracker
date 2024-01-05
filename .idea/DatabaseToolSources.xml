@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseToolSources">
+    <data-source name="localhost" uuid="12570b50-a173-4442-8192-3a3bc852938c" type="SQLITE">
+      <base-info connect-type="DB_DEFAULT" product="SQLite" version="3.43.0" jdbc-name="SQLite JDBC" jdbc-version="3.43.0.0" />
+      <user-name />
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="main" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <url>jdbc:sqlite:D:/MyDocuments/projects/android/myExpirationDateTracker/app/src/main/assets/products.db</url>
+      <remarks />
+      <vm-options />
+      <driver-info id="sqlite.xerial" />
+      <ssh-properties enabled="false" />
+      <jdbc-additional-properties>
+        <property name="enable_load_extension" value="true" />
+      </jdbc-additional-properties>
+      <ssl-config enabled="false">
+        <uuid />
+        <caFile />
+        <clientCertificateFile />
+        <clientKeyFile />
+        <sslMode>REQUIRE</sslMode>
+      </ssl-config>
+    </data-source>
+  </component>
+</project>

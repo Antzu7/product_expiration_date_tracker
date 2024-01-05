@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">product_expiration_date_tracker</string>
+    <string name="empty_list_text">Здесь пусто(</string>
+    <string name="enter_name">Навзание продукта</string>
+    <string name="enter_date">Дата окончания срока годности</string>
+    <string name="btn_update">Обновить</string>
+    <string name="btn_delete">Удалить</string>
+</resources>
