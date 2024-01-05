@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -63,10 +65,29 @@ public class ModifyProductActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_update:
-                String name = nameText.getText().toString();
-                String date = dateText.getText().toString();
-                dbManager.update(_id, name, globals.getFormatDate(date));
-                this.returnHome();
+                Boolean nameCheck = true, dateCheck = true;
+
+                String sn = nameText.getText().toString().trim();
+                if (TextUtils.isEmpty(sn)) {
+                    nameText.setHint("Введите название");
+                    nameText.setHintTextColor(Color.RED);
+                    nameCheck = false;
+                }
+
+                String sd = dateText.getText().toString().trim();
+                if (TextUtils.isEmpty(sd)) {
+                    dateText.setHint("Выберите дату истечения срока годности");
+                    dateText.setHintTextColor(Color.RED);
+                    dateCheck = false;
+                }
+
+                if (nameCheck && dateCheck) {
+                    String name = nameText.getText().toString();
+                    String date = dateText.getText().toString();
+                    dbManager.update(_id, name, globals.getFormatDate(date));
+                    this.returnHome();
+                }
+
                 break;
 
             case R.id.btn_delete:

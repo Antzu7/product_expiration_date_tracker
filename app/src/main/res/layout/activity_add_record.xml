@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:ems="10"
-            android:hint="@string/enter_name" />
+            android:hint="@string/enter_name"
+            android:inputType="text" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,8 +39,7 @@
                 android:layout_weight="20"
                 android:duplicateParentState="true"
                 android:ems="10"
-                android:focusable="false"
-                android:hint="" />
+                android:focusable="false" />
 
             <ImageButton
                 android:id="@+id/date_btn"
@@ -54,32 +54,15 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="fill_parent"
+    <Button
+        android:id="@+id/add_record"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="10dp">
-
-        <Button
-            android:id="@+id/btn_update"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/btn_update" />
-
-        <Button
-            android:id="@+id/btn_delete"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/btn_delete" />
-    </LinearLayout>
+        android:text="@string/btn_add"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid android:color="#FFFFFF"/>
-
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#673AB7"/>
+        </shape>
+    </item>
+    <item>
+        <vector android:height="64dp" android:viewportHeight="512"
+            android:viewportWidth="512" android:width="64dp" xmlns:android="http://schemas.android.com/apk/res/android">
+            <path android:fillColor="#FFFFFF" android:pathData="M381,236H276V131c0,-11 -9,-20 -20,-20s-20,9 -20,20v105H131c-11,0 -20,9 -20,20s9,20 20,20h105v105c0,11 9,20 20,20s20,-9 20,-20V276h105c11,0 20,-9 20,-20S392,236 381,236z"/>
+        </vector>
+    </item>
+</layer-list>
