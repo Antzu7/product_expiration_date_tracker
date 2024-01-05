@@ -1,8 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+     Base application theme.
     <style name="Base.Theme.product_expiration_date_tracker" parent="Theme.AppCompat.DayNight">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
+    <style name="ButtonColor" parent="@style/Widget.AppCompat.Button">
+        <item name="backgroundTint">@color/main</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Theme.product_expiration_date_tracker" parent="Base.Theme.product_expiration_date_tracker" />

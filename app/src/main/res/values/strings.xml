@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">product_expiration_date_tracker</string>
-    <string name="app_name_front">Food Tracker</string>
+    <string name="app_name_front">Product Tracker</string>
+    <string name="section_name_edit">Редактировать</string>
+    <string name="section_name_add">Добавить</string>
     <string name="empty_list_text">Здесь пусто(</string>
     <string name="enter_name">Навзание продукта</string>
     <string name="enter_date">Дата окончания срока годности</string>

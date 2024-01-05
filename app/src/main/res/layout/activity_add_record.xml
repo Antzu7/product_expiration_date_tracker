@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:ems="10"
-            android:hint="@string/enter_name"
-            android:inputType="text" />
+            android:hint="@string/enter_name" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,29 +33,26 @@
 
             <EditText
                 android:id="@+id/date_edittext"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:duplicateParentState="true"
-                android:ems="10"
+                android:layout_weight="100"
                 android:focusable="false" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/date_btn"
                 style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:layout_weight="80"
-                android:src="@drawable/calendar"
-                android:text="" />
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/calendar_btn"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
+        style="@style/ButtonColor"
         android:id="@+id/add_record"
-        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="main">#EA286C</color>
+    <color name="accent">#FFD7E5</color>
+
+    <color name="good">#6EAD70</color>
+    <color name="middle">#EFC750</color>
+    <color name="bad">#DA4242</color>
 </resources>

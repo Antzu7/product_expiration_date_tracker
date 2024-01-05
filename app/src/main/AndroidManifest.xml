@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" android:name=".ModifyProductActivity" android:label="@string/app_name"/>
+        <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" android:name=".ModifyProductActivity" android:label="@string/section_name_edit"/>
 
-        <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" android:name=".AddProductActivity" android:label="@string/app_name"/>
+        <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" android:name=".AddProductActivity" android:label="@string/section_name_add"/>
     </application>
 
 </manifest>

@@ -20,8 +20,8 @@ public class ModifyProductActivity extends Activity implements OnClickListener {
 
     Globals globals = Globals.getInstance();
     private EditText nameText, dateText;
-    private ImageButton dateBtn;
-    private Button updateBtn, deleteBtn;
+    //private ImageButton dateBtn;
+    private Button updateBtn, deleteBtn, dateBtn;
 
     private long _id;
 
@@ -30,8 +30,6 @@ public class ModifyProductActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setTitle("Редактировать");
 
         setContentView(R.layout.activity_modify_record);
 
@@ -43,7 +41,7 @@ public class ModifyProductActivity extends Activity implements OnClickListener {
 
         updateBtn = (Button) findViewById(R.id.btn_update);
         deleteBtn = (Button) findViewById(R.id.btn_delete);
-        dateBtn = (ImageButton) findViewById(R.id.date_btn);
+        dateBtn = (Button) findViewById(R.id.date_btn);
 
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");

@@ -18,7 +18,6 @@ public class Globals{
     public String getFormatDate(String date) {
 
         String[] split = date.split("\\.");
-        Log.d("TAG", split[0]);
 
         if (split.length > 1) {
             return split[2] + "-" + split[1] + "-" + split[0];

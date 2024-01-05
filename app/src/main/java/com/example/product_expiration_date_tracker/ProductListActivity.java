@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,9 +24,9 @@ public class ProductListActivity extends AppCompatActivity {
     private DBManager dbManager;
     private ListView listView;
     private Button addBtn;
-    private SimpleCursorAdapter adapter;
-    final String[] from = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.EXPIRATION_DATE };
-    final int[] to = new int[] { R.id.id, R.id.name, R.id.date };
+    private MyAdapter adapter;
+    final String[] from = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.EXPIRATION_DATE, "interval" };
+    final int[] to = new int[] { R.id.id, R.id.name, R.id.date, R.id.interval };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         addBtn = (Button) findViewById(R.id.add_product_btn);
 
-        adapter = new SimpleCursorAdapter(this, R.layout.activity_view_record, cursor, from, to, 0);
+        adapter = new MyAdapter(this, R.layout.activity_view_record, cursor, from, to, 0);
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);

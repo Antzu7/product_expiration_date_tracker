@@ -17,8 +17,7 @@ import android.widget.ImageButton;
 public class AddProductActivity extends Activity implements OnClickListener {
 
     Globals globals = Globals.getInstance();
-    private Button addBtn;
-    private ImageButton dateBtn;
+    private Button addBtn, dateBtn;
     private EditText nameEditText;
     private EditText dateEditText;
 
@@ -29,15 +28,13 @@ public class AddProductActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle("Добавить");
-
         setContentView(R.layout.activity_add_record);
 
         nameEditText = (EditText) findViewById(R.id.name_edittext);
         dateEditText = (EditText) findViewById(R.id.date_edittext);
 
         addBtn = (Button) findViewById(R.id.add_record);
-        dateBtn = (ImageButton) findViewById(R.id.date_btn);
+        dateBtn = (Button) findViewById(R.id.date_btn);
 
         dbManager = new DBManager(this);
         dbManager.open();

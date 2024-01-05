@@ -37,8 +37,11 @@ public class DBManager {
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.EXPIRATION_DATE };
-        Cursor cursor = database.query(DBHelper.TABLE_NAME, columns, null, null, null, null, DBHelper.EXPIRATION_DATE);
+        //String[] columns = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.EXPIRATION_DATE, DBHelper.INTERVAL };
+        //Cursor cursor = database.query(DBHelper.TABLE_NAME, columns, null, null, null, null, DBHelper.EXPIRATION_DATE);
+        String query = "SELECT _id, name, expirationDate, round(julianday(expirationDate) - julianday('now')) AS interval FROM " +  DBHelper.TABLE_NAME + " ORDER BY interval";
+        Cursor cursor = database.rawQuery(query, null);
+
         if (cursor != null) {
             cursor.moveToFirst();
         }
