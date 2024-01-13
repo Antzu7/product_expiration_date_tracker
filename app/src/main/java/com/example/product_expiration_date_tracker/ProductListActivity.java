@@ -60,7 +60,7 @@ public class ProductListActivity extends AppCompatActivity {
 
                 Intent modify_intent = new Intent(getApplicationContext(), ModifyProductActivity.class);
                 modify_intent.putExtra("name", name);
-                modify_intent.putExtra("date", globals.getFormatDate(date));
+                modify_intent.putExtra("date", date);
                 modify_intent.putExtra("id", id);
 
                 startActivity(modify_intent);
