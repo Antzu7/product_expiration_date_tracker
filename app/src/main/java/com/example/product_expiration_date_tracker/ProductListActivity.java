@@ -1,6 +1,9 @@
 package com.example.product_expiration_date_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,6 +20,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class ProductListActivity extends AppCompatActivity {
 
@@ -27,6 +31,7 @@ public class ProductListActivity extends AppCompatActivity {
     private MyAdapter adapter;
     final String[] from = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.EXPIRATION_DATE, "interval" };
     final int[] to = new int[] { R.id.id, R.id.name, R.id.date, R.id.interval };
+    public static final String TAG_MY_WORK = "mywork";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,11 @@ public class ProductListActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);
+
+        PeriodicWorkRequest.Builder checkExpirationAndNotify =
+                new PeriodicWorkRequest.Builder(MyWorker.class, 1, TimeUnit.MINUTES);
+        PeriodicWorkRequest request = checkExpirationAndNotify.build();
+        WorkManager.getInstance().enqueueUniquePeriodicWork(TAG_MY_WORK, ExistingPeriodicWorkPolicy.KEEP, request);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
