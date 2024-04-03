@@ -23,6 +23,7 @@ public class MyWorker extends Worker {
     @Override
     public Result doWork() {
         Log.d("WORKER", "doWork");
+        Integer i = 1;
         dbManager = new DBManager(this_context);
         dbManager.open();
         Cursor cursor = dbManager.getExpired();
@@ -31,7 +32,8 @@ public class MyWorker extends Worker {
             while (cursor.moveToNext()) {
                 Log.d("WORKER", "IN WHILE");
                 @SuppressLint("Range") String productName = cursor.getString(cursor.getColumnIndex("name"));
-                displayNotification("Срок годности продукта истек!", "У продукта " + productName + " истек срок годности");
+                displayNotification("Срок годности продукта истек!", "У продукта " + productName + " истек срок годности", i);
+                i++;
             }
         }
         finally {
@@ -41,7 +43,7 @@ public class MyWorker extends Worker {
         return Result.success();
     }
 
-    private void displayNotification(String title, String task) {
+    private void displayNotification(String title, String task, Integer id) {
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -54,6 +56,6 @@ public class MyWorker extends Worker {
                 .setContentText(task)
                 .setSmallIcon(R.mipmap.ic_launcher);
 
-        notificationManager.notify(1, notification.build());
+        notificationManager.notify(id, notification.build());
     }
 }
