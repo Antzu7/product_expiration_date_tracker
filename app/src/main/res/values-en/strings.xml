@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">product_expiration_date_tracker</string>
+    <string name="app_name_front">Product Tracker</string>
+    <string name="section_name_edit">Edit</string>
+    <string name="section_name_add">Add</string>
+    <string name="empty_list_text">It\'s empty here(</string>
+    <string name="enter_name">Product name</string>
+    <string name="enter_date">Expiration date</string>
+    <string name="btn_update">Edit</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_add">Add</string>
+    <string name="language_code">EN</string>
+    <string name="days">days</string>
+    <string name="name_hint">Enter name</string>
+    <string name="date_hint">Choose expiration date</string>
+</resources>

@@ -22,15 +22,12 @@ public class MyWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        Log.d("WORKER", "doWork");
         Integer i = 1;
         dbManager = new DBManager(this_context);
         dbManager.open();
         Cursor cursor = dbManager.getExpired();
         try {
-            Log.d("WORKER", "in TRY CATCH");
             while (cursor.moveToNext()) {
-                Log.d("WORKER", "IN WHILE");
                 @SuppressLint("Range") String productName = cursor.getString(cursor.getColumnIndex("name"));
                 displayNotification("Срок годности продукта истек!", "У продукта " + productName + " истек срок годности", i);
                 i++;

@@ -11,6 +11,8 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -21,6 +23,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class ProductListActivity extends AppCompatActivity {
@@ -62,6 +65,9 @@ public class ProductListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long viewId) {
+                Locale locale = getResources().getConfiguration().locale;
+                Locale.setDefault(locale);
+
                 TextView idTextView = (TextView) view.findViewById(R.id.id);
                 TextView nameTextView = (TextView) view.findViewById(R.id.name);
                 TextView dateTextView = (TextView) view.findViewById(R.id.date);
@@ -82,7 +88,8 @@ public class ProductListActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Locale locale = getResources().getConfiguration().locale;
+                Locale.setDefault(locale);
                 Intent add_intent = new Intent(getApplicationContext(), AddProductActivity.class);
                 startActivity(add_intent);
             }
@@ -93,9 +100,39 @@ public class ProductListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dbManager.deleteAll();
-                finish();
-                startActivity(getIntent());
+                recreate();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @SuppressLint("UnsafeIntentLaunch")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case R.id.action_maintain:
+                if (String.valueOf(item.getTitle()).equals("EN")) {
+                    LanguageHelper.setLocale(ProductListActivity.this, "ru");
+                }
+                else if (String.valueOf(item.getTitle()).equals("RU")) {
+                    LanguageHelper.setLocale(ProductListActivity.this, "en");
+                }
+                else {
+                    return true;
+                }
+                recreate();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

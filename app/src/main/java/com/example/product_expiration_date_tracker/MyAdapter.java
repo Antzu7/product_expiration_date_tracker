@@ -44,7 +44,7 @@ public class MyAdapter extends SimpleCursorAdapter {
 
         //row_id.setText(String.valueOf(position+1));
         date.setText(globals.getFormatDate(date.getText().toString()));
-        interval.setText(interval.getText().toString() + " дней");
+        interval.setText(interval.getText().toString() + " " + ctx.getString(R.string.days));
 
         return view;
     }

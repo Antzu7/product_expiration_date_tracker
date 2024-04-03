@@ -16,6 +16,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import java.util.Locale;
+
 public class ModifyProductActivity extends Activity implements OnClickListener {
 
     Globals globals = Globals.getInstance();
@@ -67,14 +69,14 @@ public class ModifyProductActivity extends Activity implements OnClickListener {
 
                 String sn = nameText.getText().toString().trim();
                 if (TextUtils.isEmpty(sn)) {
-                    nameText.setHint("Введите название");
+                    nameText.setHint(this.getString(R.string.name_hint));
                     nameText.setHintTextColor(Color.RED);
                     nameCheck = false;
                 }
 
                 String sd = dateText.getText().toString().trim();
                 if (TextUtils.isEmpty(sd)) {
-                    dateText.setHint("Выберите дату истечения срока годности");
+                    dateText.setHint(this.getString(R.string.date_hint));
                     dateText.setHintTextColor(Color.RED);
                     dateCheck = false;
                 }
@@ -106,6 +108,9 @@ public class ModifyProductActivity extends Activity implements OnClickListener {
     }
 
     private void openDatePicker() {
+        Locale locale = getResources().getConfiguration().locale;
+        Locale.setDefault(locale);
+
         Calendar c = Calendar.getInstance();
         int day = c.get(Calendar.DAY_OF_MONTH);
         int month = c.get(Calendar.MONTH);
