@@ -5,6 +5,7 @@ import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -27,7 +28,7 @@ public class ProductListActivity extends AppCompatActivity {
     Globals globals = Globals.getInstance();
     private DBManager dbManager;
     private ListView listView;
-    private Button addBtn;
+    private Button addBtn, delBtn;
     private MyAdapter adapter;
     final String[] from = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.EXPIRATION_DATE, "interval" };
     final int[] to = new int[] { R.id.id, R.id.name, R.id.date, R.id.interval };
@@ -46,6 +47,7 @@ public class ProductListActivity extends AppCompatActivity {
         listView.setEmptyView(findViewById(R.id.empty));
 
         addBtn = (Button) findViewById(R.id.add_product_btn);
+        delBtn = (Button) findViewById(R.id.del_products_btn);
 
         adapter = new MyAdapter(this, R.layout.activity_view_record, cursor, from, to, 0);
         adapter.notifyDataSetChanged();
@@ -83,6 +85,16 @@ public class ProductListActivity extends AppCompatActivity {
 
                 Intent add_intent = new Intent(getApplicationContext(), AddProductActivity.class);
                 startActivity(add_intent);
+            }
+        });
+
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UnsafeIntentLaunch")
+            @Override
+            public void onClick(View v) {
+                dbManager.deleteAll();
+                finish();
+                startActivity(getIntent());
             }
         });
     }

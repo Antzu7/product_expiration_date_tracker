@@ -60,6 +60,10 @@ public class DBManager {
         database.delete(DBHelper.TABLE_NAME, DBHelper._ID + " = " + _id, null);
     }
 
+    public void deleteAll() {
+        database.delete(DBHelper.TABLE_NAME, "", null);
+    }
+
     public Cursor getExpired() {
         String query = "SELECT _id, name FROM " +  DBHelper.TABLE_NAME + " WHERE date() = expirationDate";
         Cursor cursor = database.rawQuery(query, null);

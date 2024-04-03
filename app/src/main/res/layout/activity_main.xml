@@ -37,6 +37,17 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/del_products_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/deletebtn"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/add_product_btn"
+        app:layout_constraintEnd_toEndOf="@+id/add_product_btn"
+        app:layout_constraintStart_toStartOf="@+id/add_product_btn" />
+
+    <Button
         android:id="@+id/add_product_btn"
         android:layout_width="70dp"
         android:layout_height="70dp"
