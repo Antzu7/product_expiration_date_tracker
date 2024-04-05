@@ -51,7 +51,7 @@ public class MyWorker extends Worker {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(), "EDT")
                 .setContentTitle(title)
                 .setContentText(task)
-                .setSmallIcon(R.mipmap.ic_launcher);
+                .setSmallIcon(R.mipmap.ic_launcher_round);
 
         notificationManager.notify(id, notification.build());
     }
